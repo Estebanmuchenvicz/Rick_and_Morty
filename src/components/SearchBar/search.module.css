@@ -1,0 +1,21 @@
+.conteiner {
+    text-align: right;
+    padding: 0px 60px;
+    
+    
+}
+
+.search {
+    margin-top: 0.9rem;
+    /* margin-right: 2rem; */
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    color: #000;
+    background-color: #B7E4F9FF;
+}
+
+.input {
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    background-color: #FAFD7CFF;
+}
