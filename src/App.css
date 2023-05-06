@@ -1,12 +1,13 @@
 .App {
    margin: 0;
    text-align: center;
-   
-   
-   /* height: 100vh; */
+    /* height: 100vh;  */
 }
 
 body{
-   background: rgba(0, 0, 0, 0.8) url("./asset/img/background.jpg");
+   margin: 0px;
+   padding: 0px;
+   background: rgba(0, 0, 0, 0.8) url("./assets/img/background.jpg");
+   height: 100vh; 
 }
 

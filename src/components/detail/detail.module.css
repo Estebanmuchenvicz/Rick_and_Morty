@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    max-width: 100%;
+    margin: 2rem 10rem;
+    align-items: center;
+    background-color: rgba(19, 15, 53, 0.808);
+    text-shadow: 2px 2px 4px rgba(1, 1, 1, 0.788);
+    border-radius: 40px;
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.925);
+}
+
+.container h2 {
+        color: rgb(255, 255, 255);
+        font-size: 2rem;
+        margin-top: 0.7rem;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        text-shadow: 5px 5px 2px black;
+}
+
+.containerinfo p{
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    text-shadow: 5px 5px 2px black;
+}
+
+.container img{
+    justify-content: center;
+    height: 280px;
+    width: 280px;
+    border-bottom: 10px solid #000;
+    object-fit: cover;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.925);
+}
+
+.containerinfo{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    /* padding: 10px 10px 0px 0px; */
+    
+}
+
+.info{
+    margin: 0rem 0rem 0rem 8rem;
+    text-align: center;
+    
+}
+
+.img{
+    
+    padding: 3rem 3rem 3rem 15rem;
+    
+    
+}
+
+.btn{
+    background-color: rgba(0, 0, 0, 0.808);
+    text-decoration: none;
+    border: none;
+    font-size: 1.3rem;
+    color: rgb(10, 238, 113);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 6px 6px 6px 6px;
+    cursor: pointer;
+
+}

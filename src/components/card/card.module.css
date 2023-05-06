@@ -3,13 +3,13 @@
     flex-direction: column;
     overflow: hidden;
     width: 15rem;
-    height: 22rem;
+    height: 18rem;
     background-color: #a141fc;
     background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
     color: #fff;
     border-radius: 3rem;
-    box-shadow: 0px 10px 30px rgba(23, 7, 37, 0.3);
     text-decoration: none;
+
 }
 
 
@@ -26,18 +26,24 @@
     border-radius: 50%;
     text-align: center;
     margin-left: 3rem;
+    
  
 }
 
 
 
 /* CARD INFO */
+.contenedorinfo{
+    padding: 10px;
+}
+
 .card h2 {
     color: rgb(16, 17, 17);
     font-size: 0.7rem;
     text-align: center;
     margin-top: 0.7rem;
     margin-bottom: 0.3rem;
+    text-decoration: none;
 }
 
 .name {
@@ -48,7 +54,17 @@
     margin-left: 3.2rem;
     align-items: center;
     text-align: center;
+    text-decoration: none;
     
+}
+
+.card:hover{
+    box-shadow: 5px 5px 2px 2px rgb(0, 0, 0);
+    scale: 0.9;
+}
+
+.link{
+    text-decoration: none;
 }
 
 .buttonX {
@@ -60,6 +76,7 @@
     background-color: #000;
     text-decoration: none;
     border: #000;
+
 }
 
 @media only screen and (max-width: 768px) {
