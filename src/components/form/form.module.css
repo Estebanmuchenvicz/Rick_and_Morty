@@ -7,7 +7,7 @@
     margin: 4rem 30rem;
     align-items: center;
     background-color: rgba(19, 15, 53, 0.808);
-    text-shadow: 2px 2px 4px rgba(1, 1, 1, 0.788);
+    box-shadow: 2px 2px 4px rgba(151,206,76, 0.788);
     border-radius: 40px;
     padding: 20px 20px 20px 20px;
     
@@ -39,7 +39,7 @@
     display: block;
     width: 80%;
     border-radius: 20px;
-    border: 0;
+    border-color: rgba(151,206,76);
     padding: 10px 10px 10px 10px;
     font-size: 15px;
     background-color: rgba(0, 0, 0, 0.808);
@@ -48,9 +48,9 @@
     color: #ffffff;
 }
 
-.form button{
-    background-color: rgba(38, 206, 23, 0.808);
-    color: #ffffff;
+.btn{
+    background-color: rgba(151,206,76);
+    color: #000;
     display: flex;
     text-align: center;
     border-radius: 20px;
@@ -63,11 +63,16 @@
     cursor: pointer;
 }
 
+.btn:hover{
+    background-color: rgba(232,154,199);
+    
+}
+
 .container img{
     justify-content: center;
     height: 190px;
     width: 190px;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid rgba(151,206,76);
     object-fit: cover;
     border-radius: 50%;
     text-align: center;

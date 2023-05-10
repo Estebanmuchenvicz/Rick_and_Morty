@@ -5,6 +5,7 @@ import validation from './validation';
 const Form = ({login})=>{
     const [userData, setUserData] = useState({email:'', password:''});
     const [errors, setErrors] = useState({email:'', password:''});
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const handleChange = (event)=>{
         const property = event.target.name;
@@ -18,9 +19,12 @@ const Form = ({login})=>{
     const handleSubmit =(event)=>{
         event.preventDefault();
         login(userData);
+        setLoggedIn(true);
     }
 
-
+    function handleLogout() {
+        setLoggedIn(false);
+      }
     return(
         <div className={style.container}>
             <div>
@@ -37,8 +41,16 @@ const Form = ({login})=>{
                 <input type='password' name="password" placeholder='password' value={userData.password} onChange={handleChange}/>
                 <p>{errors.password}</p>
             </div>
-            <button>SUBMIT</button>
+            <div>
+
+            </div>
+            <button type='submit' className={style.btn}>SUBMIT</button>
         </form>
+        {loggedIn && (
+        <button onClick={handleLogout} className={style.btn}>
+          Cerrar sesión
+        </button>
+      )}
         </div>
 
     )

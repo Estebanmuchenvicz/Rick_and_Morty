@@ -4,7 +4,7 @@
     margin: 2rem 10rem;
     align-items: center;
     background-color: rgba(19, 15, 53, 0.808);
-    text-shadow: 2px 2px 4px rgba(1, 1, 1, 0.788);
+    box-shadow: 2px 2px 4px rgba(151,206,76, 0.788);
     border-radius: 40px;
     padding: 20px 20px 20px 20px;
     
@@ -44,7 +44,7 @@
     justify-content: center;
     height: 280px;
     width: 280px;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid rgba(151,206,76);
     object-fit: cover;
     border-radius: 50%;
     text-align: center;

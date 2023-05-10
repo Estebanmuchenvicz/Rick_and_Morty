@@ -6,7 +6,7 @@
     background-color: rgba(19, 15, 53, 0.808);
     text-shadow: 2px 2px 4px rgba(1, 1, 1, 0.788);
     border-radius: 40px;
-    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.925);
+    box-shadow: 3px 3px 3px 2px rgba(151,206,76, 0.925);
 }
 
 .container h2 {
@@ -15,7 +15,7 @@
         margin-top: 0.7rem;
         margin-bottom: 1rem;
         text-decoration: none;
-        text-shadow: 5px 5px 2px black;
+        text-shadow: 5px 5px 2px rgba(151,206,76, 0.925);
 }
 
 .containerinfo p{
@@ -24,18 +24,18 @@
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     text-decoration: none;
-    text-shadow: 5px 5px 2px black;
+    text-shadow: 5px 5px 2px rgba(151,206,76, 0.925);
 }
 
 .container img{
     justify-content: center;
     height: 280px;
     width: 280px;
-    border-bottom: 10px solid #000;
+    border-bottom: 10px solid rgba(151,206,76, 0.925);
     object-fit: cover;
     border-radius: 50%;
     text-align: center;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.925);
+    
 }
 
 .containerinfo{
@@ -61,14 +61,18 @@
 }
 
 .btn{
-    background-color: rgba(0, 0, 0, 0.808);
     text-decoration: none;
     border: none;
     font-size: 1.3rem;
-    color: rgb(10, 238, 113);
+    color: rgb(232,154,199);
     border-radius: 10px;
     margin-bottom: 15px;
     padding: 6px 6px 6px 6px;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.808);
+    margin-top: 1rem;
+}
 
+.btn:hover{
+    box-shadow: 3px 3px 5px rgba(151,206,76, 0.788);
 }
