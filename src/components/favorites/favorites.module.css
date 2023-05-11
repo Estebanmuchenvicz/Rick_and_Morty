@@ -7,3 +7,16 @@
     margin: 0.5rem 1rem;
     min-height: 100vh;
 }
+
+.containerSelect{
+    display: flex;
+    max-width: 100%;
+    margin: 8px 60px;
+    align-items: center;
+    padding: 8px 60px;
+}
+
+.containerSelect select{
+    display: flex;
+    padding: 2px 2px;
+}
