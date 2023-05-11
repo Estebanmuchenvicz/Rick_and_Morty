@@ -6,6 +6,7 @@ import { filterCards, orderCards } from "../../redux/actions";
 
 const Favorites = ({myFavorites}) => {
     const dispatch = useDispatch();
+    // const myFavorites = useSelector((state) => state.myFavorites)
     const [aux, setAux] = useState(false);
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value));
