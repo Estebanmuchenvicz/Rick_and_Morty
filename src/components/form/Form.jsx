@@ -26,6 +26,7 @@ const Form = ({login})=>{
         setLoggedIn(false);
       }
     return(
+        <div className={style.containerForm}>
         <div className={style.container}>
             <div>
                 <img src={imgLogin} alt="" />
@@ -52,7 +53,7 @@ const Form = ({login})=>{
         </button>
       )}
         </div>
-
+        </div>
     )
 };
 

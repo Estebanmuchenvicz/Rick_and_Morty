@@ -1,7 +1,7 @@
 import style from "./card.module.css";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions";
-import {  connect } from "react-redux";
+import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 
 function Card({
@@ -15,17 +15,20 @@ function Card({
   onClose,
   addFav,
   removeFav,
-  myFavorites
+  myFavorites,
 }) {
-
   const [isFav, setIsFav] = useState(false);
-//   const dispatch = useDispatch();
-//   const myFavorites = useSelector((state) => state.myFavorites);
+  //   const dispatch = useDispatch();
+  //   const myFavorites = useSelector((state) => state.myFavorites);
 
   const handleFavorite = () => {
     //isFav ? removeFav(id) : addFav({id,name,status,gender,image}); setIsFav(!isFav); -> esto es un ternario.
-    if (isFav) {setIsFav(false);removeFav(id);} 
-    else {setIsFav(true);addFav({ id, name, status, gender, image });
+    if (isFav) {
+      setIsFav(false);
+      removeFav(id);
+    } else {
+      setIsFav(true);
+      addFav({ id, name, status, gender, image });
     }
   };
 
@@ -73,21 +76,21 @@ function Card({
   );
 }
 
- const mapStateToProps = (state) => {
-   return {
-     myFavorites: state.myFavorites,
-   };
- };
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
 
- const mapDispatchToProps = (dispatch) => {
-   return {
-     addFav: (character) => {
-       dispatch(addFav(character));
-     },
-     removeFav: (id) => {
-       dispatch(removeFav(id));
-     },
-   };
- };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (character) => {
+      dispatch(addFav(character));
+    },
+    removeFav: (id) => {
+      dispatch(removeFav(id));
+    },
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

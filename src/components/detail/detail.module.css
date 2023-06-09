@@ -1,6 +1,11 @@
-.container{
-    display: flex;
+.sectionDetail{
+  width: 100%;
+  height: 100vh;
+}
+
+.containerDetail{
     max-width: 100%;
+    display: flex;
     margin: 2rem 10rem;
     align-items: center;
     background-color: rgba(19, 15, 53, 0.808);
@@ -9,7 +14,7 @@
     box-shadow: 3px 3px 3px 2px rgba(151,206,76, 0.925);
 }
 
-.container h2 {
+.containerDetail h2 {
         color: rgb(255, 255, 255);
         font-size: 2rem;
         margin-top: 0.7rem;
@@ -27,7 +32,7 @@
     text-shadow: 5px 5px 2px rgba(151,206,76, 0.925);
 }
 
-.container img{
+.containerDetail img{
     justify-content: center;
     height: 280px;
     width: 280px;
@@ -76,3 +81,52 @@
 .btn:hover{
     box-shadow: 3px 3px 5px rgba(151,206,76, 0.788);
 }
+
+@media only screen and (max-width: 768px) {
+    .containerDetail{
+        /* overflow: hidden; */
+        flex-direction: column-reverse;
+        margin: 2rem 2rem;
+        padding: 10px;
+      }
+
+      .containerDetail h2 {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    
+      .containerDetail h3 {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    
+      .containerinfo p {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.3rem;
+      }
+    
+      .containerDetail img {
+        height: 180px;
+        width: 180px;
+      }
+    
+      .containerinfo {
+        flex-direction: column;
+      }
+
+      .info{
+        margin: 3rem 3rem 3rem 3rem;
+        text-align: center;
+        
+    }
+    
+    .img{
+        
+        padding: 3rem 3rem 3rem 3rem;
+        
+        
+    }
+    }

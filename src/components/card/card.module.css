@@ -38,7 +38,7 @@
 }
 
 .card h2 {
-    color: rgb(16, 17, 17);
+    color: rgb(255, 255, 255);
     font-size: 0.7rem;
     text-align: center;
     margin-top: 0.7rem;
@@ -49,12 +49,13 @@
 .name {
     border-radius: 10px;
     border: none;
-    background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+    background-color: #00000099;
     width: 50%;
     margin-left: 3.2rem;
     align-items: center;
     text-align: center;
     text-decoration: none;
+    padding: 1px 1px 1px ;
     
 }
 
@@ -99,8 +100,8 @@
 
 @media only screen and (max-width: 768px) {
     .card {
-        width: 13.5rem;
-        height: 33rem;
+        width: 15.9rem;
+        height: 20rem;
         margin: 2rem;
         /* align-items: center; */
         text-align: center;
@@ -108,13 +109,15 @@
     }
 
     .cardImage {
-        width: 13.5rem;
-        height: 13.5rem;
+        width: 11.5rem;
+        height: 11.5rem;
+        margin-left: 1.8rem;
     }
 
-    .cardName {
-        font-size: 1.5rem;
+    .card h2 {
+        font-size: 0.8em;
         margin-top: 0.3rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+        color: #fff;
     }
 }

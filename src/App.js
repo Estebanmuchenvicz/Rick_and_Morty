@@ -8,6 +8,7 @@ import axios from 'axios';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Form from './components/form/Form';
 import Favorites from './components/favorites/Favorites';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -53,6 +54,7 @@ function App() {
       
       <div className='App'>
          {pathname !== "/" && <NavBar onSearch={onSearch}/>}
+
          <Routes>
             <Route path='/' element={<Form login={login}/>}/>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
@@ -60,6 +62,7 @@ function App() {
             <Route path='/detail/:id' element={<Detail/>}/>
             <Route path='/favorites' element={<Favorites/>}/>
          </Routes>
+         <Footer/>
       </div>
 
       

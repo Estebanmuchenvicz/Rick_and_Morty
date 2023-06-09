@@ -1,64 +1,95 @@
-.nav{
-    background-color: rgba(19, 15, 53, 0.808);
-    box-shadow: 1px 1px 2px rgba(151,206,76, 0.788);
-    padding: 8px 10px 8px 45px;
-    max-width: 1500px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    
-    
+.nav {
+  background-color: rgba(19, 15, 53, 0.808);
+  box-shadow: 1px 1px 2px rgba(151, 206, 76, 0.788);
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+/* .menuMobil{
+    display: none;
+} */
+
+.toggleMenu {
+  display: none;
 }
 
 .menu {
-    display: flex;
-    align-items: center;
-    align-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
-.listmenu{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    padding: 0px 20px;
-    
+.listmenu {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-right: 5em;
+
+  /* padding: 0px 20px; */
 }
 
-.listmenu li{
+.listmenu li {
+  /* width: 100%;
+    height: 100%; */
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 1em;
+  transition: all 300ms ease;
+  text-decoration: none;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.808);
+  margin: 0 0.5em;
+}
+
+.listmenulink {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.listmenu li:hover {
+  box-shadow: 2px 2px 2px 2px rgba(151, 206, 76, 0.788);
+}
+
+.title {
+  color: #b9ec66;
+}
+
+.logo {
+  width: 120px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menuMobil {
+    display: flex;
+  }
+
+  .menu {
     width: 100%;
-    height: 100%;
+    flex-direction: column-reverse;
     display: flex;
+    justify-content: center;
     align-items: center;
-    color: white;
-    padding: 14px;
-    text-transform: uppercase;
-    font-size: 1.0em;
-    transition: all 300ms ease;
-    text-decoration: none;
-    border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.808);
-    margin: 1rem;
-}
+  }
 
-.listmenulink{
-    text-decoration: none;
-    color: #ffffff;
-    
-}
+  .menu.isActive {
+    display: flex;
+  }
 
-.listmenu li:hover{
-    box-shadow: 2px 2px 2px 2px rgba(151,206,76, 0.788);
-    }
+  .listmenu {
+    flex-direction: column;
+  }
 
-
-.title{
-    color:  #b9ec66;
-}
-
-.logo{
-    width: 130px;
-    cursor: pointer;
-    
+  .listmenu li {
+    margin: 0.5em 0;
+  }
 }

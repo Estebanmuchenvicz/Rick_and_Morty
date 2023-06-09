@@ -20,7 +20,8 @@ const Detail = ()=> {
      }, [id]);
 
      return(
-        <div className={style.container}>
+      <div className={style.sectionDetail}>
+        <div className={style.containerDetail}>
 
                     <div className={style.containerinfo}>
                         <div className= {style.info}>
@@ -41,6 +42,7 @@ const Detail = ()=> {
                     </div>
                     
 
+        </div>
         </div>
      )
 };
