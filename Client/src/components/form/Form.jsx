@@ -2,10 +2,12 @@ import style from './form.module.css'
 import imgLogin from '../../assets/img/img-login.webp'
 import {useState} from 'react'
 import validation from './validation';
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 const Form = ({login})=>{
     const [userData, setUserData] = useState({email:'', password:''});
     const [errors, setErrors] = useState({email:'', password:''});
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    
 
     const handleChange = (event)=>{
         const property = event.target.name;
@@ -19,12 +21,13 @@ const Form = ({login})=>{
     const handleSubmit =(event)=>{
         event.preventDefault();
         login(userData);
-        setLoggedIn(true);
+        
     }
 
-    function handleLogout() {
-        setLoggedIn(false);
-      }
+
+
+
+
     return(
         <div className={style.containerForm}>
         <div className={style.container}>
@@ -37,9 +40,13 @@ const Form = ({login})=>{
                 <input type="text" name="email" placeholder='example@example.com' value={userData.email} onChange={handleChange}/>
                 <p>{errors.email}</p>
             </div>
-            <div>
+            <div className=''>
                 <label htmlFor="password">Password</label>
-                <input type='password' name="password" placeholder='password' value={userData.password} onChange={handleChange}/>
+                <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder='password' value={userData.password} onChange={handleChange} className={style.passwordInput}/>
+                <button
+                 className={style.eyes}
+                 onClick={() => setPasswordVisible(!passwordVisible)}
+                >{passwordVisible ? <AiOutlineEyeInvisible className={style.icono}/> : <AiOutlineEye className={style.icono}/>}</button>
                 <p>{errors.password}</p>
             </div>
             <div>
@@ -47,11 +54,7 @@ const Form = ({login})=>{
             </div>
             <button type='submit' className={style.btn}>SUBMIT</button>
         </form>
-        {loggedIn && (
-        <button onClick={handleLogout} className={style.btn}>
-          Cerrar sesión
-        </button>
-      )}
+  
         </div>
         </div>
     )

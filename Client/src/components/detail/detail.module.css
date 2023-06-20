@@ -85,7 +85,7 @@
 @media only screen and (max-width: 768px) {
     .containerDetail{
         /* overflow: hidden; */
-        flex-direction: column-reverse;
+        flex-direction: column row-reverse;
         margin: 2rem 2rem;
         padding: 10px;
       }
@@ -109,12 +109,13 @@
       }
     
       .containerDetail img {
-        height: 180px;
-        width: 180px;
+        height: 190px;
+        width: 190px;
+
       }
     
       .containerinfo {
-        flex-direction: column;
+        flex-direction:column;
       }
 
       .info{
@@ -126,7 +127,6 @@
     .img{
         
         padding: 3rem 3rem 3rem 3rem;
-        
-        
+
     }
     }

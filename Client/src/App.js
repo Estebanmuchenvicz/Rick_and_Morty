@@ -9,6 +9,7 @@ import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Form from './components/form/Form';
 import Favorites from './components/favorites/Favorites';
 import Footer from './components/Footer/Footer';
+// import { useDispatch } from 'react-redux';
 
 
 
@@ -17,15 +18,18 @@ function App() {
    const {pathname} = useLocation();
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const email = "esteban@gmail.com";
-   const password = "gabriel30";
+   
+//  const email = "esteban@gmail.com";
+//   const password = "ab1234";
 
-   const login =(userData)=>{
-      if(userData.email === email && userData.password === password){
-         setAccess(true);
-         navigate('/home');
-      }
-
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(access);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
@@ -48,12 +52,20 @@ function App() {
       }))
    };
 
+   const Random = () => {
+      let randomId = Math.floor(Math.random() * 826);
+      onSearch(randomId);
+    };
+
+
+  
+
 
    return (
 
       
       <div className='App'>
-         {pathname !== "/" && <NavBar onSearch={onSearch}/>}
+         {pathname !== "/" && <NavBar onSearch={onSearch} Random={Random}/>}
 
          <Routes>
             <Route path='/' element={<Form login={login}/>}/>

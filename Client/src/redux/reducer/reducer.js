@@ -1,4 +1,5 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions-type";
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "../actions/actions-type";
+
 
 const initialState = {
     myFavorites: [],
@@ -10,11 +11,11 @@ const reducer = (state= initialState, {type, payload}) => {
     switch (type) {
         case ADD_FAV:
             return{
-                ...state, myFavorites: [...state.allCharacters, payload],
-                allCharacters: [...state.allCharacters, payload]
+                ...state, myFavorites: payload,
+                allCharacters:  payload
             }
         case REMOVE_FAV: return{
-            ...state, myFavorites: state.myFavorites.filter(fav => fav.id !== Number(payload)) //Esto filtra el id del personaje verifica si es diferente lo pasa a Number recorre y elimina de fav
+            ...state, myFavorites: payload 
         }
 
         case FILTER:

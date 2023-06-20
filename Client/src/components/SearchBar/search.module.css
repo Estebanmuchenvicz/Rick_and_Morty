@@ -1,23 +1,45 @@
 .conteiner {
+    display: flex;
     text-align: right;
-    margin-right: 10em; 
+    /* margin-right: 10em;  */
     
     
 }
 
 .search {
-    border-radius: 1.2rem;
-    font-size: 1rem;
-    color: #000;
-    background-color: rgba(232,154,199);
+    position: absolute;
+    border-radius: 0.3rem;
+    font-size: .9rem;
+    color: #f70707;
+    background-color: none;
     cursor: pointer;
-    
+    /* right: 10px; */
+    transform: translateX(11.7rem);
+    border-color: rgba(151,206,76);
+
 }
 
 .input {
-    border-radius: 1.2rem;
+    position: relative;
+    border-radius: .3rem;
     font-size: 1rem;
     background-color: #FAFD7CFF;
     border-color: rgba(151,206,76);
-    padding-left: 8px;
+    padding-left: 8px;  
+}
+
+.input:focus {
+    outline: none;
+  }
+
+@media screen and (max-width: 768px) {
+    .search {
+        transform: translateX(13.3rem);
+        
+    }
+
+    .input{
+        
+    }
+
 }

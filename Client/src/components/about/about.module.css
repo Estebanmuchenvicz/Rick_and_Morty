@@ -22,6 +22,7 @@
         margin-top: 0.7rem;
         margin-bottom: 1rem;
         text-decoration: none;
+        /* font-family: 'Roboto', sans-serif; */
    
     
 }
@@ -33,8 +34,7 @@
     margin-top: 0.7rem;
     margin-bottom: 1rem;
     text-decoration: none;
-
-
+    font-family: 'Roboto', sans-serif;
 }
 
 .containerAbout p{
@@ -43,6 +43,7 @@
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .containerAbout img{
