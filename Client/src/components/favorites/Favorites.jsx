@@ -48,6 +48,8 @@ const Favorites = ({myFavorites}) => {
                     name = {fav.name}
                     status = {fav.status}
                     gender = {fav.gender}
+                    origin={fav.origin} 
+                    species={fav.species} 
                     image={fav.image}
                     />
                 )

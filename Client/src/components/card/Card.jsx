@@ -1,7 +1,7 @@
 import style from "./card.module.css";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions/actions";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 function Card({
@@ -12,14 +12,13 @@ function Card({
   gender,
   origin,
   image,
-  onClose,
-  addFav,
-  removeFav,
-  myFavorites,
+  onClose
 }) {
+  const dispatch = useDispatch();
+  const { myFavorites } = useSelector(state => state);
   const [isFav, setIsFav] = useState(false);
-  //   const dispatch = useDispatch();
-  //   const myFavorites = useSelector((state) => state.myFavorites);
+  
+
 
   const handleFavorite = () => {
     //isFav ? removeFav(id) : addFav({id,name,status,gender,image}); setIsFav(!isFav); -> esto es un ternario.
@@ -74,23 +73,23 @@ function Card({
       </div>
     </div>
   );
-}
-
-const mapStateToProps = (state) => {
-  return {
-    myFavorites: state.myFavorites,
-  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addFav: (character) => {
-      dispatch(addFav(character));
-    },
-    removeFav: (id) => {
-      dispatch(removeFav(id));
-    },
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     myFavorites: state.myFavorites,
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addFav: (character) => {
+//       dispatch(addFav(character));
+//     },
+//     removeFav: (id) => {
+//       dispatch(removeFav(id));
+//     },
+//   };
+// };
+
+export default Card;
