@@ -9,15 +9,18 @@ import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Form from './components/form/Form';
 import Favorites from './components/favorites/Favorites';
 import Footer from './components/Footer/Footer';
-// import { useDispatch } from 'react-redux';
+import { getFav } from './redux/actions/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import Register from './components/Register/Register';
 
 
 
 function App() {
+   const dispatch = useDispatch()
    const [characters, setCharacters] = useState([]);
    const {pathname} = useLocation();
    const navigate = useNavigate();
-   const [access, setAccess] = useState(false);
+   const access = useSelector((state)=>state.isLoggedIn)
    
 //  const email = "esteban@gmail.com";
 //   const password = "ab1234";
@@ -28,10 +31,19 @@ function App() {
          const { email, password } = userData;
          const URL = 'http://localhost:3001/rickandmorty/login/';
          const {data} = await axios(URL + `?email=${email}&password=${password}`)
-            const { access } = data;
-            setAccess(access);
-            access && navigate('/home');
-         
+            const { access, userId } = data;
+    
+            if (access) {
+              // Guarda el userId y el token en localStorage
+              localStorage.setItem('userId', userId);
+              localStorage.setItem('token', 'EL_TOKEN_JWT_RECIBIDO');
+        
+              dispatch(getFav(userId))
+              // Redirecciona al usuario a la página /home
+              navigate('/home');
+            } else {
+              console.log('Credenciales incorrectas');
+            }
       } catch (error) {
          console.log(error);
       }
@@ -75,16 +87,17 @@ function App() {
 
       
       <div className='App'>
-         {pathname !== "/" && <NavBar onSearch={onSearch} Random={Random}/>}
+         {pathname !== "/" && pathname !=='/register' && <NavBar onSearch={onSearch} Random={Random}/>}
 
          <Routes>
             <Route path='/' element={<Form login={login}/>}/>
+            <Route path='/register' element={<Register/>}/>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/detail/:id' element={<Detail/>}/>
             <Route path='/favorites' element={<Favorites/>}/>
          </Routes>
-         <Footer/>
+         {pathname !== "/" && pathname !=='/register' &&<Footer/>}
       </div>
 
       

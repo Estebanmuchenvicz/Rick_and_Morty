@@ -11,12 +11,15 @@
 .containerSelect{
     display: flex;
     max-width: 100%;
-    margin: 8px 60px;
-    align-items: center;
-    padding: 8px 60px;
+    align-content: space-around;
+    justify-content: space-around;
+    background-color: rgba(19, 15, 53, 0.808);
+
 }
 
 .containerSelect select{
-    display: flex;
-    padding: 2px 2px;
+        background-color: rgba(19, 15, 53, 0.808);
+        color: #ffffff;
+        padding: 8px 20px;
+        margin: 4px 20px;
 }

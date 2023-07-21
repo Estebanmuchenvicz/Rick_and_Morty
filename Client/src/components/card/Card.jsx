@@ -1,64 +1,58 @@
-import style from "./card.module.css";
-import { Link } from "react-router-dom";
-import { addFav, removeFav } from "../../redux/actions/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-
-function Card({
-  id,
-  name,
-  status,
-  species,
-  gender,
-  origin,
-  image,
-  onClose
-}) {
-  const dispatch = useDispatch();
-  const { myFavorites } = useSelector(state => state);
-  const [isFav, setIsFav] = useState(false);
-  
-
-
-  const handleFavorite = () => {
     //isFav ? removeFav(id) : addFav({id,name,status,gender,image}); setIsFav(!isFav); -> esto es un ternario.
-    if (isFav) {
-      setIsFav(false);
-      removeFav(id);
-    } else {
-      setIsFav(true);
-      addFav({ id, name, status, gender, image });
-    }
-  };
+    import style from "./card.module.css";
+    import { Link, useLocation } from "react-router-dom";
+    import { useDispatch, useSelector } from "react-redux"; // Importa los hooks necesarios
+    import { useState, useEffect } from "react";
+    import { addFav, removeFav } from "../../redux/actions/actions"; // Importa las acciones
+    
+    function Card({
+      id,
+      name,
+      status,
+      species,
+      gender,
+      origin,
+      image,
+      onClose,
+    }) {
+      const dispatch = useDispatch(); // Obtiene la función dispatch
+      const myFavorites = useSelector((state) => state.myFavorites); // Obtiene el estado de myFavorites
+      const [isFav, setIsFav] = useState(false);
+      const location = useLocation()
 
-  useEffect(() => {
-    myFavorites.forEach((fav) => {
-      if (fav.id === id) {
-        setIsFav(true);
-      }
-    });
-  }, [myFavorites]);
-
+    
+      const handleFavorite = () => {
+        if (isFav) {
+          setIsFav(false);
+          dispatch(removeFav(id)); // Utiliza la función dispatch para llamar a la acción removeFav
+        } else {
+          setIsFav(true);
+          dispatch(addFav({ id, name, origin, status, image, species, gender})); // Utiliza la función dispatch para llamar a la acción addFav
+        }
+      };
+    
+      useEffect(() => {
+        myFavorites.forEach((fav) => {
+          if (fav.id === id) {
+            setIsFav(true);
+          }
+        });
+      }, [myFavorites]);
   return (
     <div className={style.card}>
       <div className={style.btn}>
-        {/* {
-            isFav ? (
-               ) : (
-                  <button onClick={handleFavorite}>🤍</button>
-                  )
-               } */}
+
         <button onClick={handleFavorite} className={style.btnfav}>
           {isFav ? "❤️" : "🤍"}
         </button>
-        <button
+        {location.pathname !== "/favorites" && ( <button
           onClick={() => {
             onClose(id);
           }}
           className={style.buttonX}
         >
           X
-        </button>
+        </button>)}
       </div>
 
       <div className={style.contenedorinfo}>
@@ -75,21 +69,23 @@ function Card({
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     myFavorites: state.myFavorites,
-//   };
-// };
 
-// const mapDispatchToProps = (dispatch) => {
+export default Card;
+
+//para funcion de clase
+// const mapStateToProps = (state) => {
+//    return {
+//      myFavorites: state.myFavorites,
+//   };
+//  };
+
+//  const mapDispatchToProps = (dispatch) => {
 //   return {
-//     addFav: (character) => {
+//      addFav: (character) => {
 //       dispatch(addFav(character));
 //     },
 //     removeFav: (id) => {
 //       dispatch(removeFav(id));
 //     },
 //   };
-// };
-
-export default Card;
+//  };

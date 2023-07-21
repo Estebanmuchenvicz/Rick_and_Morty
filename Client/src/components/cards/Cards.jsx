@@ -2,6 +2,7 @@ import Card from '../card/Card';
 import style from '../cards/cards.module.css';
 
 function Cards({characters, onClose}) {
+   
    return(
       <div className={style.card}>
          {characters.map(({id,name,status,species,gender,origin,image}) => {
@@ -16,7 +17,9 @@ function Cards({characters, onClose}) {
             origin = {origin.name}
             image = {image}
             onClose = {onClose}
+            
             />
+         
            ) 
          })}
       </div>

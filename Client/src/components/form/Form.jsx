@@ -3,6 +3,8 @@ import imgLogin from '../../assets/img/img-login.webp'
 import {useState} from 'react'
 import validation from './validation';
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
+
 const Form = ({login})=>{
     const [userData, setUserData] = useState({email:'', password:''});
     const [errors, setErrors] = useState({email:'', password:''});
@@ -52,9 +54,15 @@ const Form = ({login})=>{
             <div>
 
             </div>
-            <button type='submit' className={style.btn}>SUBMIT</button>
+            <button type='submit' className={style.btn}>LOGIN</button>
         </form>
-  
+        <div className={style.bottomText}>
+          <p>¿No tienes cuenta?</p>
+          <NavLink className={style.link} to="/register">
+            {" "}
+            Registrate ahora
+          </NavLink>
+        </div>
         </div>
         </div>
     )

@@ -60,7 +60,7 @@
 }
 
 .card:hover{
-    box-shadow: 3px 3px 5px rgba(151,206,76, 0.788);
+    box-shadow: 5px 5px 8px rgba(151,206,76, 0.788);
     scale: 0.99;
 }
 

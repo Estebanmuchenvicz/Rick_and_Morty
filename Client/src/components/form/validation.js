@@ -8,7 +8,9 @@ const validation = (userData,errors,setErrors)=>{
             setErrors({...errors, email: ""});
         }
 
-
+        if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/.test(userData.password))
+        errors.password =
+          "The password must have at least one number, one uppercase letter, and one lowercase letter.";
         if(userData.password.length < 6 || userData.password.length > 10) setErrors({...errors, password: "El password debe contener entre 6 y 10 caracteres"});
         else if(!/\d/.test(userData.password)){
             setErrors({...errors, password: "Debe contener al menos un número"});

@@ -16,6 +16,22 @@ module.exports = (sequelize) => {
       password:{
          type: DataTypes.STRING,
          allowNull: false,
-      }
+      },
+      confirmPassword: {
+         type: DataTypes.STRING,
+         allowNull: false,
+      },
+      name: {
+         type: DataTypes.STRING,
+         allowNull: true,
+      },
+      resetPasswordToken: {
+         type: DataTypes.STRING,
+         allowNull: true,
+      },
+      resetPasswordExpires: {
+         type: DataTypes.DATE,
+         allowNull: true,
+      },
    }, { timestamps: false });
 };

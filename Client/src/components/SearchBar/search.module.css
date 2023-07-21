@@ -7,14 +7,14 @@
 }
 
 .search {
-    position: absolute;
+    /* position: absolute; */
     border-radius: 0.3rem;
     font-size: .9rem;
     color: #f70707;
     background-color: none;
     cursor: pointer;
     /* right: 10px; */
-    transform: translateX(11.7rem);
+    /* transform: translateX(11.7rem); */
     border-color: rgba(151,206,76);
 
 }
@@ -23,9 +23,10 @@
     position: relative;
     border-radius: .3rem;
     font-size: 1rem;
-    background-color: #FAFD7CFF;
+    background-color: rgba(251, 253, 124, 0.082);
     border-color: rgba(151,206,76);
-    padding-left: 8px;  
+    padding-left: 8px; 
+    color: #ffffff;
 }
 
 .input:focus {
@@ -34,7 +35,7 @@
 
 @media screen and (max-width: 768px) {
     .search {
-        transform: translateX(13.3rem);
+        /* transform: translateX(13.3rem); */
         
     }
 

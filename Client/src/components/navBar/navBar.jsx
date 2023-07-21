@@ -2,12 +2,15 @@ import SearchBar from "../SearchBar/SearchBar";
 import "../navBar/nav.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaRandom} from "react-icons/fa";
-import { useState } from "react";
+import { FiLogOut} from "react-icons/fi";
+import { useState} from "react";
+import {logoutUser} from "../../redux/actions/actions"
+import {  useDispatch } from 'react-redux';
 
-function NavBar({ onSearch, Random }) {
-
+function NavBar({ onSearch, Random  }) {
+  const navigate = useNavigate()
   const location = useLocation();
   const isAboutOrFavorites =
     location.pathname === "/about" || location.pathname === "/favorites";
@@ -21,11 +24,23 @@ function NavBar({ onSearch, Random }) {
     setMenu( !menu )
    }
 
+   
+   const dispatch = useDispatch();
+ 
+   const handleLogout = () => {
+    console.log('Clicked Logout Button');
+     // Despacha la acción de logout para actualizar el estado de autenticación a false
+     dispatch(logoutUser());
+     navigate("/");
+     // Otras acciones que puedas necesitar al cerrar sesión (por ejemplo, limpiar el estado)
+   };
+ 
+
+
+
   return (
     <header className="nav">
-      {/* <h1 className={style.title}></h1> */}
-      
-      
+  
       <Link to="/home">
         <img src={logo} alt="logo" className='logo' onClick={toggleMenu}/>
       </Link>
@@ -35,8 +50,9 @@ function NavBar({ onSearch, Random }) {
            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
            </button>
-
-
+      
+      
+      <div className={ `menuGeneral ${ menu ? 'isActive' : '' }` }>
 
       <div className={ `menu ${ menu ? 'isActive' : '' }` }>
         <div>
@@ -61,18 +77,27 @@ function NavBar({ onSearch, Random }) {
 
         </div>
         {!isAboutOrFavorites && (
-          <div className='addCharacter'>
+          <div className={ `addCharacter ${ menu ? 'isActive' : '' }` }>
           <div>
             <SearchBar onSearch={onSearch} />
             </div>
             <div>
-        <button className='buttonRandom' onClick={handleRandom}>
+        <button className={ `buttonRandom ${ menu ? 'isActive' : '' }` } onClick={handleRandom}>
         <FaRandom/>
         </button>
           </div>
           </div>
         )}
         
+      </div>
+      
+    <div>
+    
+      <FiLogOut type="button" className="logautBtn" onClick={handleLogout}/>
+  
+  </div>
+  
+
       </div>
     </header>
   );

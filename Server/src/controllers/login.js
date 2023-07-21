@@ -8,6 +8,6 @@ module.exports = async (req, res) => {
     if(!user) return res.status(404).send("Usuario no encontrado")
 
     return user.password === password 
-    ? res.json({access: true}) 
+    ? res.json({access: true,  userId: user.id }) 
     : res.status(403).send("Contraseña incorrecta")
 };

@@ -27,8 +27,14 @@
   display: none;
   border: none;
 }
-
 .menu {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+
+.menuGeneral {
   display: flex;
   align-items: center;
   align-content: center;
@@ -90,6 +96,7 @@
   border-radius: 20px;
   border: none;
   cursor: pointer;
+  margin-left: 12px;
 }
 
 .addCharacter{
@@ -100,29 +107,44 @@
   margin-right: 10em; 
 }
 
+.logautBtn{
+  color: #ffffff;
+  font-size: 30px;
+  margin-right: 22px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .menuMobil {
     display: flex;
 
   }
 
-
-
-  .menu {
+  .menuGeneral {
     width:100%;
-    display: flex;
-    flex-flow: column-reverse;
-    justify-content: center;
-    align-items: center;
     height:0vh;
     opacity: 0;
     overflow: hidden;
     transition: all .5s ease;
     background-color: rgba(19, 15, 53, 0.808);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .menu {
+    
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: center;
+    align-items: center;
+
     
   }
 
-  .menu.isActive {
+  .menuGeneral.isActive {
     height:50vh;
     opacity: 1;
     z-index: 999;
