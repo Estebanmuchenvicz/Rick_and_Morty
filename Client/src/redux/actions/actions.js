@@ -6,7 +6,7 @@ const getUserId = () => {
 };
 
 export const addFav = (character) =>{
-        const endpoint = 'http://localhost:3001/rickandmorty/fav';
+        const endpoint = '/rickandmorty/fav';
         return async (dispatch) => {
          try {
           const userId = getUserId();
@@ -28,7 +28,7 @@ export const addFav = (character) =>{
 };
 
 export const removeFav = (id) =>{
-    const endpoint = `http://localhost:3001/rickandmorty/fav/${id}?`;
+    const endpoint = `/rickandmorty/fav/${id}?`;
     return async (dispatch) => {
 		try {
       const userId = getUserId();
@@ -50,7 +50,7 @@ export const removeFav = (id) =>{
 };
 
 export const getFav = (userId)=>{
-  const endpoint = `http://localhost:3001/rickandmorty/fav?userId=${userId}`;
+  const endpoint = `/rickandmorty/fav?userId=${userId}`;
   return async (dispatch) => {
    try {
   const { data } = await axios.get(endpoint);
@@ -89,7 +89,7 @@ export const logoutUser = () => ({
 export const registerUser = (userData) => async (dispatch) => {
   try {
     // Realiza la llamada al endpoint de registro en el servidor
-    const response = await axios.post('http://localhost:3001/rickandmorty/register', userData);
+    const response = await axios.post('/rickandmorty/register', userData);
     const newUser = response.data;
 
     // Llama a la acción de éxito de registro

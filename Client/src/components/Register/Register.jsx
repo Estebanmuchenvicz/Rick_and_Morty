@@ -42,8 +42,9 @@ const Register = () => {
       setErrors({ ...errors, confirmPassword: "Passwords don't match" });
     } else {
       // Llama a la acción "registerUser" pasando los datos de registro
+      setErrors({ ...errors, confirmPassword: "" });
       dispatch(registerUser(userData));
-      navigate('/login')
+      navigate('/')
     }
   };
 

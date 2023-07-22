@@ -4,7 +4,6 @@ import NavBar from './components/navBar/navBar';
 import About from './components/about/About';
 import Detail from './components/detail/Detail';
 import  {useState, useEffect} from 'react';
-import axios from 'axios';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Form from './components/form/Form';
 import Favorites from './components/favorites/Favorites';
@@ -12,6 +11,8 @@ import Footer from './components/Footer/Footer';
 import { getFav } from './redux/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Register from './components/Register/Register';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001'
 
 
 
@@ -21,15 +22,12 @@ function App() {
    const {pathname} = useLocation();
    const navigate = useNavigate();
    const access = useSelector((state)=>state.isLoggedIn)
-   
-//  const email = "esteban@gmail.com";
-//   const password = "ab1234";
 
    async function login(userData) {
       try {
          
          const { email, password } = userData;
-         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const URL = '/rickandmorty/login/';
          const {data} = await axios(URL + `?email=${email}&password=${password}`)
             const { access, userId } = data;
     
@@ -55,7 +53,7 @@ function App() {
 
    async function onSearch(id) {
       try {    
-         const  response  = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+         const  response  = await axios(`/rickandmorty/character/${id}`)
          const data = response.data;
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
