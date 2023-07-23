@@ -12,7 +12,7 @@ import { getFav } from './redux/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Register from './components/Register/Register';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://rickandmorty-production-bd88.up.railway.app/'
+axios.defaults.baseURL = 'https://rickandmorty-production-bd88.up.railway.app'
 
 
 
