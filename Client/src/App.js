@@ -27,7 +27,7 @@ function App() {
       try {
          
          const { email, password } = userData;
-         const URL = '/rickandmorty/login/';
+         const URL = '/rickandmorty/login';
          const {data} = await axios(URL + `?email=${email}&password=${password}`)
             const { access, userId } = data;
     
