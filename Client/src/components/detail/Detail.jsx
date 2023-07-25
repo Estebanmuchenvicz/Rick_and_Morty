@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from 'react';
-import { useParams, Link, useHistory} from "react-router-dom";
+import { useParams, Link, useNavigate} from "react-router-dom";
 import style from './detail.module.css';
 import Swal from "sweetalert2";
 
@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 const Detail = ()=> { 
     const {id} = useParams()
     const [character, setCharacter] = useState({});
-    const history = useHistory(); // Obtenemos la instancia de history
+    const history = useNavigate(); // Obtenemos la instancia de history
 
     useEffect(() => {
         axios(`/rickandmorty/character/${id}`).then(({ data }) => {
