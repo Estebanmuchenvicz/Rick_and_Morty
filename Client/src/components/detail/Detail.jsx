@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 const Detail = ()=> { 
     const {id} = useParams()
     const [character, setCharacter] = useState({});
-    const history = useNavigate(); // Obtenemos la instancia de history
+    const navigate = useNavigate(); // Obtenemos la instancia de history
 
     useEffect(() => {
         axios(`/rickandmorty/character/${id}`).then(({ data }) => {
@@ -27,7 +27,7 @@ const Detail = ()=> {
      }, [id]);
 
      const handleGoBack = () => {
-      history.goBack(); // Regresamos a la página anterior en el historial del navegador
+      navigate(-1); // Regresamos a la página anterior en el historial del navegador
     };
 
      return(
