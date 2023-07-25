@@ -83,6 +83,12 @@
     cursor: pointer;
 }
 
+/* about.module.css */
+.paragraphContainer p {
+  margin-bottom: 12px; /* espacio entre párrafos */
+}
+
+
 
 @media only screen and (max-width: 768px) {
     .containerAbout {

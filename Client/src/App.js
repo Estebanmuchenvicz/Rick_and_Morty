@@ -84,6 +84,7 @@ function App() {
 
    useEffect(() => {
       !access && navigate('/');
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    },[access]);
 
    async function onSearch(id) {
