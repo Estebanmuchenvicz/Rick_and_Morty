@@ -2,6 +2,7 @@ import axios from "axios";
 import {useEffect, useState} from 'react';
 import { useParams, Link, useHistory} from "react-router-dom";
 import style from './detail.module.css';
+import Swal from "sweetalert2";
 
 
 
@@ -16,7 +17,10 @@ const Detail = ()=> {
            if (data.name) {
               setCharacter(data);
            } else {
-              window.alert('No hay personajes con ese ID');
+            Swal.fire({
+               icon: 'error',
+               text: '¡No hay personajes con este ID! Puede buscar del 1 al 826.'
+             });
            }
         });
         return setCharacter({});
