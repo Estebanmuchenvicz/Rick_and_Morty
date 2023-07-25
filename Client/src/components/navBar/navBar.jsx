@@ -42,7 +42,7 @@ function NavBar({ onSearch, Random  }) {
     <header className="nav">
   
       <Link to="/home">
-        <img src={logo} alt="logo" className='logo' onClick={toggleMenu}/>
+        <img src={logo} alt="logo" className='logo'/>
       </Link>
       
      <button onClick={toggleMenu} className='menuMobil'>
