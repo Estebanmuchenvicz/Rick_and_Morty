@@ -46,6 +46,7 @@ const Form = ({login})=>{
                 <label htmlFor="password">Password</label>
                 <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder='password' value={userData.password} onChange={handleChange} className={style.passwordInput}/>
                 <button
+                type="button"
                  className={style.eyes}
                  onClick={() => setPasswordVisible(!passwordVisible)}
                 >{passwordVisible ? <AiOutlineEyeInvisible className={style.icono}/> : <AiOutlineEye className={style.icono}/>}</button>

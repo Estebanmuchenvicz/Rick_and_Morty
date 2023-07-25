@@ -6,6 +6,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useDispatch } from 'react-redux'; // Importa el hook useDispatch
 import { registerUser } from '../../redux/actions/actions';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const dispatch = useDispatch(); // Obtiene la función dispatch para despachar acciones
@@ -26,26 +27,34 @@ const Register = () => {
   });
 
   const [passwordVisible, setPasswordVisible] = useState(false);
+   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false); // Nuevo estado para la confirmación de contraseña
 
   const handleChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
 
     setUserData({ ...userData, [property]: value });
-    validation({ ...userData, [property]: value }, errors, setErrors);
+    setErrors(validation({ ...userData, [property]: value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (userData.password !== userData.confirmPassword) {
-      setErrors({ ...errors, confirmPassword: "Passwords don't match" });
-    } else {
-      // Llama a la acción "registerUser" pasando los datos de registro
-      setErrors({ ...errors, confirmPassword: "" });
-      dispatch(registerUser(userData));
-      navigate('/')
-    }
+   // Verificar campos requeridos
+   if (Object.keys(errors).length !== 0) {
+    Swal.fire({
+      icon: 'warning',
+      text: 'Por favor, ingrese todos los datos requeridos.',
+      position: 'top-center'
+   });
+ } else if (userData.password !== userData.confirmPassword) {
+    setErrors({ ...errors, confirmPassword: "Las contraseñas no coinciden" });
+ } else {
+    // Llama a la acción "registerUser" pasando los datos de registro
+    setErrors({ ...errors, confirmPassword: "" });
+    dispatch(registerUser(userData));
+    navigate('/')
+ }
   };
 
   return (
@@ -69,9 +78,10 @@ const Register = () => {
             <label htmlFor="password">Password</label>
             <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder='password' value={userData.password} onChange={handleChange} className={style.passwordInput} />
             <button
+            type="button"
               className={style.eyes}
-              onClick={() => setPasswordVisible(!passwordVisible)}
-            >{passwordVisible ? <AiOutlineEyeInvisible className={style.icono} /> : <AiOutlineEye className={style.icono} />}</button>
+              onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+            >{confirmPasswordVisible ? <AiOutlineEyeInvisible className={style.icono} /> : <AiOutlineEye className={style.icono} />}</button>
             <p>{errors.password}</p>
           </div>
           <div>
@@ -80,6 +90,7 @@ const Register = () => {
             <div>
 
             <button
+            type="button"
               className={style.eyes}
               onClick={() => setPasswordVisible(!passwordVisible)}
             >{passwordVisible ? <AiOutlineEyeInvisible className={style.icono} /> : <AiOutlineEye className={style.icono} />}</button>

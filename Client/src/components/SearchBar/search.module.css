@@ -27,6 +27,7 @@
     border-color: rgba(151,206,76);
     padding-left: 8px; 
     color: #ffffff;
+    width: 250px;
 }
 
 .input:focus {
