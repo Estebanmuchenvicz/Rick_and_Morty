@@ -12,9 +12,9 @@ const {Favorite, User} = require('../DB_connection');
       include: [{ model: User, where: { id: userId } }],
     });
 
-		return res.status(200).json(favs);
+		return res.status(200).json({message: "Agregaste a favaritos", favs});
 	} catch (error) {
-		return res.status(500).json({ error: error.message });
+		return res.status(400).json({ error: error.message });
 	}
 };
 

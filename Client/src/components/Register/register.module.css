@@ -160,3 +160,10 @@
     right: -20px;
     transition: 0.4s;
   }
+
+  @media (max-width: 780px) {
+
+    .eyes {
+      margin-left: 15em;
+    }
+  }

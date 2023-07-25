@@ -9,7 +9,7 @@ const getFavs = async (req, res) => {
     });
     return res.status(200).json(favs);
   } catch (error) {
-    return res.status(500).json({ message: error });
+    return res.status(400).json({ error: error.message });
   }
 };
 

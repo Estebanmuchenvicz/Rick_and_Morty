@@ -11,8 +11,9 @@ import Footer from './components/Footer/Footer';
 import { getFav } from './redux/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Register from './components/Register/Register';
+import Swal from 'sweetalert2';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://rickandmorty-production-bd88.up.railway.app'
+axios.defaults.baseURL = 'http://localhost:3001'
 
 
 
@@ -35,15 +36,49 @@ function App() {
               // Guarda el userId y el token en localStorage
               localStorage.setItem('userId', userId);
               localStorage.setItem('token', 'EL_TOKEN_JWT_RECIBIDO');
-        
               dispatch(getFav(userId))
+              Swal.fire({
+               icon: 'success',
+               text: 'Inicio de sesión exitoso.',
+               timer: 3000, // La alerta se cerrará automáticamente después de 3 segundos
+               timerProgressBar: true,
+               toast: true,
+               position: 'top-end',
+               showConfirmButton: false
+             });
+
+
+
+             Swal.fire({
+               icon: 'info',
+               title: 'Bienvenido!',
+               text: 'Puede buscar tus personajes favoritos del 1 al 826 o uno Random 🔀 y agregarlos a tus favoritos',
+               toast: true,
+               position: 'center', // Centro de la pantalla
+               showConfirmButton: false,
+               timer: 5000, // La alerta se cerrará automáticamente después de 5 segundos
+               customClass: {
+                  title: 'my-swal-title', // Clase CSS para el título
+                  popup: 'my-swal-popup' // Clase CSS para el cuadro del mensaje
+               }
+            });
+        
+              
               // Redirecciona al usuario a la página /home
               navigate('/home');
             } else {
-              console.log('Credenciales incorrectas');
+               Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: data.message
+                });
             }
       } catch (error) {
-         console.log(error);
+         Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.data.message
+          });
       }
    }
 
@@ -58,10 +93,16 @@ function App() {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
-               window.alert('¡No hay personajes con este ID!');
+               Swal.fire({
+                  icon: 'error',
+                  text: '¡No hay personajes con este ID! Puede buscar del 1 al 826.'
+                });
             }
       } catch (error) {
-         console.log(error);
+         Swal.fire({
+            icon: 'error',
+            text: '¡No hay personajes con este ID! Puede buscar del 1 al 826.'
+          });
       }
       
    };
@@ -86,7 +127,7 @@ function App() {
       
       <div className='App'>
          {pathname !== "/" && pathname !=='/register' && <NavBar onSearch={onSearch} Random={Random}/>}
-
+         
          <Routes>
             <Route path='/' element={<Form login={login}/>}/>
             <Route path='/register' element={<Register/>}/>

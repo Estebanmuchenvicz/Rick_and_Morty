@@ -4,6 +4,18 @@
     /* height: 100vh;  */
 }
 
+/* Estilos para el título del SweetAlert */
+.my-swal-title {
+    font-size: 24px;
+    text-align: center;
+ }
+ 
+ /* Estilos para el cuadro del mensaje del SweetAlert */
+ .my-swal-popup {
+    text-align: center;
+    padding: 20px;
+ }
+
 
 
 

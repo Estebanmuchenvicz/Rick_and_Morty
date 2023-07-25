@@ -6,18 +6,18 @@ module.exports = async (req, res) => {
 
     // Verificar que los campos requeridos no estén vacíos
     if (!name || !email || !password || !confirmPassword) {
-      return res.status(400).send("Faltan datos");
+      return res.status(400).send({message: "Faltan datos"});
     }
 
     // Verificar que el password y la confirmación coincidan
     if (password !== confirmPassword) {
-      return res.status(400).send("El password y la confirmación no coinciden");
+      return res.status(400).send({message: "El password y la confirmación no coinciden"});
     }
 
     // Verificar si el email ya está registrado
     const existingUser = await User.findOne({ where: { email: email } });
     if (existingUser) {
-      return res.status(409).send("El email ya está registrado");
+      return res.status(409).send({message: "El email ya está registrado"});
     }
 
     // Aquí deberías realizar el hash o encriptación del password antes de guardarlo en la base de datos
@@ -28,6 +28,6 @@ module.exports = async (req, res) => {
 
     res.status(201).json(newUser);
   } catch (error) {
-    return res.status(500).json(error.message);
+    return res.status(400).json({error: error.message});
   }
 };
