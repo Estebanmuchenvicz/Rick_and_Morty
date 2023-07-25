@@ -77,14 +77,14 @@ function App() {
          Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: error.data.message
+            text: error.response.data.message
           });
       }
    }
 
    useEffect(() => {
       !access && navigate('/');
-   },[access]);
+   },[access, navigate]);
 
    async function onSearch(id) {
       try {    
