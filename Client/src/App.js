@@ -84,7 +84,7 @@ function App() {
 
    useEffect(() => {
       !access && navigate('/');
-   },[access, navigate]);
+   },[access]);
 
    async function onSearch(id) {
       try {    
